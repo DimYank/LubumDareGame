@@ -4,27 +4,30 @@ extends Node
 var new_game = false
 var cut_scene_name = ""
 var after_cut_scene = ""
+var dialog_name = ""
+var ride_name = ""
 
 #player-related
-var orders = []
 var accepted_orders = []
+var money = 0
+
+#ride-related
+var client_points setget cliet_points_set 
 
 signal accepted
-signal added
+signal mood
 
 func _ready():
-	#var order = load("res://scripts/classes/order.gd").new()
-	#order.set_values("Омская, 108", "120");
-	#put_order(order)
-	#accept_order(order)
-	pass
-	
-func put_order(order):
-	orders.append(order)
-	emit_signal("added")
+	client_points = 0
+
+func cliet_points_set(value):
+	client_points = value
+	if client_points > 100:
+		client_points=100
+	elif client_points < 0:
+		client_points = 0
+	emit_signal("mood")
 
 func accept_order(order):
-	if orders.has(order):
-		orders.erase(order)
-		accepted_orders.append(order)
-		emit_signal("accepted")
+	accepted_orders.append(order)
+	emit_signal("accepted")

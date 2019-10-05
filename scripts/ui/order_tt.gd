@@ -1,13 +1,15 @@
 extends TextureRect
 
-onready var address_label = $from
-onready var price_label = $price
-onready var accept_but = $accept_but
+onready var address_label = $elements/from
+onready var price_label = $elements/price
+onready var accept_but = $elements/accept_but
 
 var order
 
-func set_tt(order):
-	self.order = order
+func _ready():
+	set_tt()
+
+func set_tt():
 	address_label.text = "Адрес: " + order.address
 	price_label.text = "Цена: " + String(order.price) + " p"
 	accept_but.connect("button_down", self, "accept_order")

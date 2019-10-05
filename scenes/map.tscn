@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/scenes/map.gd" type="Script" id=1]
-[ext_resource path="res://textures/bg/test.png" type="Texture" id=2]
+[ext_resource path="res://textures/bg/map.png" type="Texture" id=2]
 [ext_resource path="res://textures/ui/map_point.png" type="Texture" id=3]
 [ext_resource path="res://scripts/ui/map_point.gd" type="Script" id=4]
+[ext_resource path="res://fonts/50-font.tres" type="DynamicFont" id=5]
 
 [node name="map" type="Node"]
 script = ExtResource( 1 )
@@ -14,13 +15,69 @@ margin_bottom = 40.0
 texture = ExtResource( 2 )
 
 [node name="point" type="TextureButton" parent="bg"]
-margin_left = 234.0
-margin_top = 296.0
-margin_right = 288.0
-margin_bottom = 348.0
+margin_left = 459.97
+margin_top = 442.101
+margin_right = 495.97
+margin_bottom = 478.101
 texture_normal = ExtResource( 3 )
-expand = true
 script = ExtResource( 4 )
 order_address = "Омская, 108"
 order_price = 120
+order_dialog_name = "Alcholic"
+
+[node name="point2" type="TextureButton" parent="bg"]
+margin_left = 639.636
+margin_top = 856.621
+margin_right = 675.636
+margin_bottom = 892.621
+texture_normal = ExtResource( 3 )
+script = ExtResource( 4 )
+order_address = "Коровина, 10"
+order_price = 200
+order_dialog_name = "Trashy"
+
+[node name="point3" type="TextureButton" parent="bg"]
+margin_left = 783.666
+margin_top = 1014.78
+margin_right = 819.666
+margin_bottom = 1050.78
+texture_normal = ExtResource( 3 )
+script = ExtResource( 4 )
+order_address = "Ленина, 119"
+order_price = 400
+order_dialog_name = "test"
+
+[node name="point4" type="TextureButton" parent="bg"]
+margin_left = 909.802
+margin_top = 270.569
+margin_right = 945.802
+margin_bottom = 306.569
+texture_normal = ExtResource( 3 )
+script = ExtResource( 4 )
+order_address = "Арбат, 12"
+order_price = 140
+order_dialog_name = "Mychin"
+
+[node name="point5" type="TextureButton" parent="bg"]
+margin_left = 1246.99
+margin_top = 512.398
+margin_right = 1282.99
+margin_bottom = 548.398
+texture_normal = ExtResource( 3 )
+script = ExtResource( 4 )
+order_address = "Пушкина, 17"
+order_price = 80
+order_dialog_name = "Builder"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="moneyLabel" type="Label" parent="."]
+margin_left = 1519.42
+margin_top = 6.05199
+margin_right = 1909.42
+margin_bottom = 99.052
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0.952941, 0.882353, 0.0705882, 1 )
+custom_colors/font_color_shadow = Color( 0.94902, 0.596078, 0.0705882, 1 )
+text = "Деньги:12444р"
 

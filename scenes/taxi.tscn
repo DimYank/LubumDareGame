@@ -1,10 +1,11 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://scripts/scenes/taxi.gd" type="Script" id=1]
+[ext_resource path="res://scripts/scenes/taxi_dialog.gd" type="Script" id=1]
 [ext_resource path="res://textures/bg/test.png" type="Texture" id=2]
 [ext_resource path="res://textures/obj/car.png" type="Texture" id=3]
 [ext_resource path="res://textures/obj/wheel.png" type="Texture" id=4]
 [ext_resource path="res://textures/ui/button.png" type="Texture" id=5]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "wheelAnim"

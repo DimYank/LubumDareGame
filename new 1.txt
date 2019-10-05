@@ -1,0 +1,13 @@
+{
+	1:{
+			"type": "mes",
+			"cli": "test line",
+			"lub": "test line 2"
+		}
+	2:{
+			"type: "cho",
+			1: "Выбери меня!"
+			2: "Нет, меня!"
+			"give": 100
+			"take": 20
+		}

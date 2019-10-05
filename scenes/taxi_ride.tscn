@@ -1,0 +1,216 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://scripts/scenes/taxi_ride.gd" type="Script" id=1]
+[ext_resource path="res://textures/bg/test.png" type="Texture" id=2]
+[ext_resource path="res://textures/ui/textbox.png" type="Texture" id=3]
+[ext_resource path="res://fonts/50-font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://textures/obj/car.png" type="Texture" id=5]
+[ext_resource path="res://textures/obj/wheel.png" type="Texture" id=6]
+[ext_resource path="res://scenes/ui/action.tscn" type="PackedScene" id=7]
+[ext_resource path="res://textures/ui/popup.png" type="Texture" id=8]
+[ext_resource path="res://textures/ui/button.png" type="Texture" id=9]
+[ext_resource path="res://scenes/ui/radio_button.tscn" type="PackedScene" id=10]
+[ext_resource path="res://textures/ui/button_old.png" type="Texture" id=11]
+
+[sub_resource type="Animation" id=1]
+resource_name = "wheelAnim"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("wheel:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -180.0, -360.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("wheel2:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -180.0, -360.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "drop"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 701.343, -248.594 ), Vector2( 701.343, 325.406 ) ]
+}
+
+[node name="taxi_ride" type="Node"]
+script = ExtResource( 1 )
+
+[node name="bg" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+
+[node name="text" type="CenterContainer" parent="bg"]
+editor/display_folded = true
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -300.0
+
+[node name="textbox" type="TextureRect" parent="bg/text"]
+margin_left = 10.0
+margin_right = 1910.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 1900, 300 )
+texture = ExtResource( 3 )
+expand = true
+
+[node name="MarginContainer" type="MarginContainer" parent="bg/text/textbox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 10
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="textLabel" type="Label" parent="bg/text/textbox/MarginContainer"]
+margin_left = 20.0
+margin_top = 10.0
+margin_right = 1880.0
+margin_bottom = 77.0
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 4 )
+text = "ВФЫвфыв"
+autowrap = true
+
+[node name="car" type="Sprite" parent="bg"]
+editor/display_folded = true
+position = Vector2( 1460.71, 547.953 )
+texture = ExtResource( 5 )
+
+[node name="wheel" type="Sprite" parent="bg/car"]
+position = Vector2( -176.347, 145.589 )
+rotation = -2.27394
+texture = ExtResource( 6 )
+
+[node name="wheel2" type="Sprite" parent="bg/car"]
+position = Vector2( 153.791, 145.589 )
+rotation = -2.27394
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="bg/car"]
+anims/wheelAnim = SubResource( 1 )
+
+[node name="actions" type="HBoxContainer" parent="bg"]
+editor/display_folded = true
+margin_left = 26.7035
+margin_top = 631.26
+margin_right = 1009.7
+margin_bottom = 773.26
+custom_constants/separation = 5
+
+[node name="action" parent="bg/actions" instance=ExtResource( 7 )]
+
+[node name="passanger" type="TextureRect" parent="bg"]
+margin_left = 1610.93
+margin_top = 311.272
+margin_right = 1724.93
+margin_bottom = 398.272
+texture = ExtResource( 8 )
+
+[node name="driver" type="TextureRect" parent="bg"]
+margin_left = 1289.5
+margin_top = 321.012
+margin_right = 1403.5
+margin_bottom = 408.012
+rect_scale = Vector2( -1, 1 )
+texture = ExtResource( 8 )
+
+[node name="stisfactionBar" type="TextureProgress" parent="bg"]
+margin_left = 1042.0
+margin_top = 18.0
+margin_right = 1884.0
+margin_bottom = 85.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+texture_under = ExtResource( 9 )
+texture_progress = ExtResource( 9 )
+tint_under = Color( 0.34902, 0.203922, 0.203922, 1 )
+nine_patch_stretch = true
+
+[node name="Label" type="Label" parent="bg/stisfactionBar"]
+margin_left = 264.915
+margin_top = -4.67018
+margin_right = 594.915
+margin_bottom = 62.3298
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.952941, 0.882353, 0.0705882, 1 )
+custom_colors/font_color_shadow = Color( 0.333333, 0.180392, 0.0117647, 1 )
+text = "Настроение"
+
+[node name="radioBut" parent="." instance=ExtResource( 10 )]
+editor/display_folded = true
+margin_left = 37.2737
+margin_top = 28.4729
+margin_right = 226.274
+margin_bottom = 113.473
+
+[node name="Label" type="Label" parent="radioBut"]
+margin_left = 18.0
+margin_top = 4.0
+margin_right = 171.0
+margin_bottom = 88.0
+custom_fonts/font = ExtResource( 4 )
+text = "РАДИО"
+
+[node name="rewards" type="TextureRect" parent="."]
+margin_left = 701.343
+margin_top = 325.406
+margin_right = 1170.34
+margin_bottom = 560.406
+texture = ExtResource( 11 )
+expand = true
+
+[node name="Label" type="Label" parent="rewards"]
+margin_left = 43.3402
+margin_top = 7.70187
+margin_right = 433.34
+margin_bottom = 144.702
+custom_fonts/font = ExtResource( 4 )
+text = "Вы заработали
+120 р."
+align = 1
+valign = 1
+
+[node name="ok" type="TextureButton" parent="rewards"]
+margin_left = 71.8313
+margin_top = 149.989
+margin_right = 395.831
+margin_bottom = 209.989
+texture_normal = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="rewards/ok"]
+margin_left = 133.351
+margin_top = -5.32983
+margin_right = 193.351
+margin_bottom = 61.6702
+custom_fonts/font = ExtResource( 4 )
+text = "ОК"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="rewards"]
+anims/drop = SubResource( 2 )
+
