@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/scenes/taxi_dialog.gd" type="Script" id=1]
-[ext_resource path="res://textures/bg/test.png" type="Texture" id=2]
+[ext_resource path="res://textures/bg/background.png" type="Texture" id=2]
 [ext_resource path="res://textures/obj/car.png" type="Texture" id=3]
 [ext_resource path="res://textures/obj/wheel.png" type="Texture" id=4]
 [ext_resource path="res://textures/ui/tel.png" type="Texture" id=5]
@@ -35,18 +35,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [ 0.0, -180.0, -360.0 ]
 }
-tracks/2/type = "value"
-tracks/2/path = NodePath(".:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 428.564, 512.44 ), Vector2( 428.564, 520 ), Vector2( 428.564, 510.586 ) ]
-}
 
 [node name="taxi_dialog" type="Node"]
 script = ExtResource( 1 )
@@ -57,16 +45,16 @@ anchor_bottom = 1.0
 texture = ExtResource( 2 )
 
 [node name="car" type="Sprite" parent="bg"]
-position = Vector2( 578.254, 573.277 )
+position = Vector2( 615.164, 739.371 )
 texture = ExtResource( 3 )
 
 [node name="wheel" type="Sprite" parent="bg/car"]
-position = Vector2( -176.347, 145.589 )
+position = Vector2( -340.347, 115.589 )
 rotation = -2.27394
 texture = ExtResource( 4 )
 
 [node name="wheel2" type="Sprite" parent="bg/car"]
-position = Vector2( 153.791, 145.589 )
+position = Vector2( 323.791, 115.589 )
 rotation = -2.27394
 texture = ExtResource( 4 )
 

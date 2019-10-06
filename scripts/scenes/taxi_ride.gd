@@ -51,11 +51,12 @@ func _input(event):
 func set_scene():
 	text_box.text = "Начните уже делать что-ниубдь..."
 	var file = File.new()
-	file.open(path + game_state.ride_name + ".json", File.READ)
-	init_actions(JSON.parse(file.get_as_text()).result)
+	print(file.open(path + game_state.ride_name + ".json", File.READ))
+	
 	print(JSON.parse(file.get_as_text()).result)
 	print(JSON.parse(file.get_as_text()).error_string)
 	print(JSON.parse(file.get_as_text()).error_line)
+	init_actions(JSON.parse(file.get_as_text()).result)
 	
 	
 func init_actions(rideDic):

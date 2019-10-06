@@ -31,7 +31,7 @@ func start_messaging():
 		child.queue_free()
 		
 	for dict in dialogDict:
-		yield(get_tree().create_timer(1.5), "timeout")
+		yield(get_tree().create_timer(1), "timeout")
 		inst_m = message.instance()
 		if dict["type"] == "mes":
 			inst_m = message.instance()

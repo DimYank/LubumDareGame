@@ -5,6 +5,9 @@ onready var money = $moneyLabel
 
 func _ready():
 	game_state.add_curtains("open")
+	if game_state.accepted_orders.size() == 4 && game_state.money < 3000:
+		get_tree().change_scene("res://scenes/game_over_2.tscn")
+		return
 	check_points()
 	if game_state.new_game:
 		new_game()
@@ -12,6 +15,8 @@ func _ready():
 	if game_state.money < 3000:
 		$buyDocsBut.disabled = true
 	$buyDocsBut.connect("button_down", self, "buy_docs")
+	
+	
 
 func check_points():
 	for point in points.get_children():

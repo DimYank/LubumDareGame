@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/scenes/map.gd" type="Script" id=1]
 [ext_resource path="res://textures/bg/map.png" type="Texture" id=2]
@@ -12,6 +12,11 @@
 [ext_resource path="res://backgroundmusic/CitySound.ogg" type="AudioStream" id=10]
 [ext_resource path="res://textures/ui/button_old.png" type="Texture" id=11]
 [ext_resource path="res://scripts/ui/wind.gd" type="Script" id=12]
+[ext_resource path="res://fonts/RobotoMono-Regular.ttf" type="DynamicFontData" id=13]
+
+[sub_resource type="DynamicFont" id=1]
+size = 35
+font_data = ExtResource( 13 )
 
 [node name="map" type="Node"]
 script = ExtResource( 1 )
@@ -22,14 +27,14 @@ margin_bottom = 40.0
 texture = ExtResource( 2 )
 
 [node name="point" type="TextureButton" parent="bg"]
-margin_left = 459.97
+margin_left = 461.918
 margin_top = 442.101
-margin_right = 495.97
+margin_right = 497.918
 margin_bottom = 478.101
 texture_normal = ExtResource( 3 )
 script = ExtResource( 4 )
 order_address = "Омская, 108"
-order_price = 120
+order_price = 360
 order_dialog_name = "Alcholic"
 
 [node name="point2" type="TextureButton" parent="bg"]
@@ -40,7 +45,7 @@ margin_bottom = 892.621
 texture_normal = ExtResource( 3 )
 script = ExtResource( 4 )
 order_address = "Коровина, 10"
-order_price = 200
+order_price = 240
 order_dialog_name = "Trashy"
 
 [node name="point4" type="TextureButton" parent="bg"]
@@ -51,7 +56,7 @@ margin_bottom = 306.569
 texture_normal = ExtResource( 3 )
 script = ExtResource( 4 )
 order_address = "Арбат, 12"
-order_price = 140
+order_price = 360
 order_dialog_name = "Mychin"
 
 [node name="point5" type="TextureButton" parent="bg"]
@@ -62,7 +67,7 @@ margin_bottom = 548.398
 texture_normal = ExtResource( 3 )
 script = ExtResource( 4 )
 order_address = "Пушкина, 17"
-order_price = 80
+order_price = 360
 order_dialog_name = "Builder"
 
 [node name="moneyLabel" type="Label" parent="."]
@@ -120,12 +125,14 @@ expand = true
 script = ExtResource( 12 )
 
 [node name="Label" type="Label" parent="wind"]
-margin_left = 37.0
-margin_top = 36.0
-margin_right = 657.0
-margin_bottom = 264.0
-custom_fonts/font = ExtResource( 5 )
-text = "Ваня, сюда"
+margin_left = 35.052
+margin_top = 24.3119
+margin_right = 655.052
+margin_bottom = 252.312
+custom_fonts/font = SubResource( 1 )
+text = "Чтобы восстановить документы вы должны заработать 2000р.
+И еще 1000р нужно отдать за аренду машины. Удачи!"
+autowrap = true
 
 [node name="TextureButton" type="TextureButton" parent="wind"]
 margin_left = 187.116

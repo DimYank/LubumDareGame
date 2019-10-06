@@ -26,7 +26,7 @@ func _onfuckingmusic():
 		get_child(chislo).stop()
 		nowPlay = false
 	while !newNumber:
-		my_random_number = rng.randi_range(0, 2)
+		my_random_number = rng.randi_range(0, 4)
 		if(my_random_number!=chislo):
 			newNumber = true
 			chislo = my_random_number
@@ -36,13 +36,7 @@ func _onfuckingmusic():
 	firstNumber = false
 	newNumber = false
 	nowPlay = true
-	match my_random_number:
-		0:
-			get_child(0).play(randomtTimeForMusic)
-		1:
-			get_child(1).play(randomtTimeForMusic)
-		2:
-			get_child(2).play(randomtTimeForMusic)
+	get_child(my_random_number).play(randomtTimeForMusic)
 
 
 func _playfucingmusic():
