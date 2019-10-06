@@ -10,10 +10,7 @@ func _ready():
 	quit_but.connect("button_down", self, "on_quit_but")
 
 func on_new_game_but():
-	var curtains = load("res://scenes/misc/curtains.tscn").instance()
-	get_tree().current_scene.add_child(curtains)
-	curtains.connect("closed", self, "start_new_game")
-	curtains.close()
+	game_state.add_curtains("close").connect("closed", self, "start_new_game")
 	
 func on_continue_but():
 	pass

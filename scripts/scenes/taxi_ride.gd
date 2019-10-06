@@ -20,9 +20,7 @@ var driverLinePrinted = false
 var clientLinePrinted = false
 
 func _ready():
-	var curtains = load("res://scenes/misc/curtains.tscn").instance()
-	add_child(curtains)
-	curtains.open()
+	game_state.add_curtains("open")
 	$bg/car/AnimationPlayer.play("wheelAnim")
 	passPop.hide()
 	driverPop.hide()
@@ -39,7 +37,7 @@ func _input(event):
 			print_lines()
 
 func set_scene():
-	text_box.text = "Наните уже делать что-ниубдь..."
+	text_box.text = "Начните уже делать что-ниубдь..."
 	var file = File.new()
 	file.open(path + game_state.ride_name + ".json", File.READ)
 	init_actions(JSON.parse(file.get_as_text()).result)
@@ -109,12 +107,6 @@ func set_mood_bar():
 	print(game_state.client_points)
 	moodBar.value = game_state.client_points/100
 
-func close_curtains():
-	var curtains = load("res://scenes/misc/curtains.tscn").instance()
-	add_child(curtains)
-	curtains.close()
-	return curtains
-
 func reward():
 	var c
 	if game_state.client_points < 25:
@@ -134,7 +126,7 @@ func reward():
 	rewardPanel.get_child(1).connect("button_down",self,"finish")
 
 func finish():
-	close_curtains().connect("closed",self,"to_map")
+	game_state.add_curtains("close").connect("closed",self,"to_map")
 	
 func to_map():
 	get_tree().change_scene("res://scenes/map.tscn")

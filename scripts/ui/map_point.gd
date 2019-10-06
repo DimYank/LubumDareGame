@@ -5,7 +5,7 @@ export(int) var order_price
 export(String) var order_dialog_name
 const order_sc = preload("res://scenes/ui/order.tscn")
 
-onready var canvas = get_parent().get_node("CanvasLayer")
+#onready var canvas = get_parent().get_parent().get_node("CanvasLayer")
 var order_inst
 
 func _ready():
@@ -36,7 +36,7 @@ func hide_order():
 	order_inst.hide()
 
 func hide_point():
-	get_tree().current_scene.close_curtains().connect("closed", self, "to_taxi")
+	game_state.add_curtains("close").connect("closed", self, "to_taxi")
 	hide()
 
 func to_taxi():

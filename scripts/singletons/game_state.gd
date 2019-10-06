@@ -1,5 +1,7 @@
 extends Node
 
+const curtains_sc = preload("res://scenes/misc/curtains.tscn")
+
 #process-relate
 var new_game = false
 var cut_scene_name = ""
@@ -9,7 +11,7 @@ var ride_name = ""
 
 #player-related
 var accepted_orders = []
-var money = 0
+var money = 3000
 
 #ride-related
 var client_points setget cliet_points_set 
@@ -31,3 +33,13 @@ func cliet_points_set(value):
 func accept_order(order):
 	accepted_orders.append(order)
 	emit_signal("accepted")
+
+func add_curtains(for_what):
+	var inst = curtains_sc.instance()
+	if for_what == "close":
+		inst.close()
+	elif for_what == "open":
+		inst.modulate = Color(1,1,1,1)
+		inst.open()
+	get_tree().current_scene.add_child(inst)
+	return inst

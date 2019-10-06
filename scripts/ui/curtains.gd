@@ -2,24 +2,18 @@ extends TextureRect
 
 signal closed
 
-func _ready():
-	hide()
-	
 func open():
 	show()
-	var time = .5
-	while time > 0:
-		modulate = Color(1,1,1,1 *  time / 0.5)
-		time -= 0.02
-		yield(get_tree().create_timer(0.02), "timeout")
-	modulate = Color(1,1,1,0)
-	queue_free()
+	$AnimationPlayer.play("open")
+	$AnimationPlayer.connect("animation_finished", self, "delete")
 
 func close():
 	show()
-	var time = 0.001
-	while time < 0.5:
-		modulate = Color(1,1,1,1 * time / 0.5)
-		time += 0.02
-		yield(get_tree().create_timer(0.02), "timeout")
+	$AnimationPlayer.play("close")
+	$AnimationPlayer.connect("animation_finished", self, "closed")
+
+func closed(lul):
 	emit_signal("closed")
+
+func delete(lul):
+	queue_free()

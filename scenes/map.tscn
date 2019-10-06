@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/scenes/map.gd" type="Script" id=1]
 [ext_resource path="res://textures/bg/map.png" type="Texture" id=2]
 [ext_resource path="res://textures/ui/map_point.png" type="Texture" id=3]
 [ext_resource path="res://scripts/ui/map_point.gd" type="Script" id=4]
 [ext_resource path="res://fonts/50-font.tres" type="DynamicFont" id=5]
+[ext_resource path="res://scenes/ui/quitBut.tscn" type="PackedScene" id=6]
+[ext_resource path="res://textures/ui/button.png" type="Texture" id=7]
+[ext_resource path="res://textures/ui/button_dis.png" type="Texture" id=8]
+[ext_resource path="res://fonts/25-font.tres" type="DynamicFont" id=9]
 
 [node name="map" type="Node"]
 script = ExtResource( 1 )
@@ -36,17 +40,6 @@ order_address = "Коровина, 10"
 order_price = 200
 order_dialog_name = "Trashy"
 
-[node name="point3" type="TextureButton" parent="bg"]
-margin_left = 783.666
-margin_top = 1014.78
-margin_right = 819.666
-margin_bottom = 1050.78
-texture_normal = ExtResource( 3 )
-script = ExtResource( 4 )
-order_address = "Ленина, 119"
-order_price = 400
-order_dialog_name = "test"
-
 [node name="point4" type="TextureButton" parent="bg"]
 margin_left = 909.802
 margin_top = 270.569
@@ -69,8 +62,6 @@ order_address = "Пушкина, 17"
 order_price = 80
 order_dialog_name = "Builder"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
 [node name="moneyLabel" type="Label" parent="."]
 margin_left = 1519.42
 margin_top = 6.05199
@@ -80,4 +71,34 @@ custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.952941, 0.882353, 0.0705882, 1 )
 custom_colors/font_color_shadow = Color( 0.94902, 0.596078, 0.0705882, 1 )
 text = "Деньги:12444р"
+
+[node name="quitBut" parent="." instance=ExtResource( 6 )]
+
+[node name="buyDocsBut" type="TextureButton" parent="."]
+margin_left = 1552.61
+margin_top = 989.193
+margin_right = 1876.61
+margin_bottom = 1049.19
+texture_normal = ExtResource( 7 )
+texture_disabled = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="buyDocsBut"]
+margin_left = 6.052
+margin_top = -76.1559
+margin_right = 420.052
+margin_bottom = -5.15594
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color = Color( 0.941176, 0.321569, 0.156863, 1 )
+text = "Восстановить документы (3000р)"
+autowrap = true
+
+[node name="Label2" type="Label" parent="buyDocsBut"]
+margin_left = 76.48
+margin_top = 11.948
+margin_right = 250.48
+margin_bottom = 82.948
+custom_fonts/font = ExtResource( 9 )
+custom_colors/font_color = Color( 0.941176, 0.321569, 0.156863, 1 )
+text = "Восстановить"
+autowrap = true
 

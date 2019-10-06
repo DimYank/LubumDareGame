@@ -11,9 +11,7 @@ var typing = false
 var breakTyping = false
 
 func _ready():
-	var curtains = load("res://scenes/misc/curtains.tscn").instance()
-	add_child(curtains)
-	curtains.open()
+	game_state.add_curtains("open")
 	set_scene()
 
 func _input(event):
@@ -40,10 +38,7 @@ func set_scene():
 func progress_scene():
 	progress += 1
 	if progress >= scene_lines.size():
-		var curtains = load("res://scenes/misc/curtains.tscn").instance()
-		add_child(curtains)
-		curtains.connect("closed", self, "next_scene")
-		curtains.close()
+		game_state.add_curtains("close").connect("closed", self, "next_scene")
 		return
 		
 	if scene_lines[progress].begins_with("!"):

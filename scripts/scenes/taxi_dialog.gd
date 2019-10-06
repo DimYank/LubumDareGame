@@ -8,9 +8,7 @@ onready var message_box = $bg/phone/ScrollContainer/VBoxContainer
 var dialogDict
 
 func _ready():
-	var curtains = load("res://scenes/misc/curtains.tscn").instance()
-	add_child(curtains)
-	curtains.open()
+	game_state.add_curtains("open")
 	$bg/car/AnimationPlayer.play("wheelAnim")
 	set_dialog()
 
@@ -52,18 +50,12 @@ func start_messaging():
 
 func apply_points(points, but):
 	if !dialogDict[dialogDict.size()-1]["name"]:
-		close_curtains().connect("closed", self, "to_map")
+		game_state.add_curtains("close").connect("closed", self, "to_map")
 		return
 	but.hide()
 	game_state.client_points += points
 	game_state.ride_name = dialogDict[dialogDict.size()-1]["name"]
-	close_curtains().connect("closed", self, "next_scene")
-	
-func close_curtains():
-	var curtains = load("res://scenes/misc/curtains.tscn").instance()
-	add_child(curtains)
-	curtains.close()
-	return curtains
+	game_state.add_curtains("close").connect("closed", self, "next_scene")
 
 func next_scene():
 	get_tree().change_scene("res://scenes/taxi_ride.tscn")
