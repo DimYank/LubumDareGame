@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/scenes/taxi_dialog.gd" type="Script" id=1]
 [ext_resource path="res://textures/bg/test.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://textures/obj/wheel.png" type="Texture" id=4]
 [ext_resource path="res://textures/ui/tel.png" type="Texture" id=5]
 [ext_resource path="res://scenes/ui/message.tscn" type="PackedScene" id=6]
+[ext_resource path="res://backgroundmusic/CarSound.ogg" type="AudioStream" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "wheelAnim"
@@ -94,3 +95,5 @@ custom_constants/separation = 15
 
 [node name="message" parent="bg/phone/ScrollContainer/VBoxContainer" instance=ExtResource( 6 )]
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="bg"]
+stream = ExtResource( 7 )
