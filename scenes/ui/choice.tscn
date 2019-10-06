@@ -27,10 +27,10 @@ margin_right = 250.303
 margin_bottom = 53.9495
 
 [node name="mesage" type="Label" parent="choice/choice1"]
-margin_left = -21.8087
-margin_top = 8.40435
-margin_right = 263.191
-margin_bottom = 65.4044
+margin_left = -14.0
+margin_top = 8.0
+margin_right = 263.0
+margin_bottom = 65.0
 mouse_filter = 1
 custom_fonts/font = SubResource( 1 )
 text = "сообщение
@@ -44,10 +44,10 @@ margin_right = 252.354
 margin_bottom = 105.213
 
 [node name="mesage" type="Label" parent="choice/choice2"]
-margin_left = -23.7582
-margin_top = 6.35384
-margin_right = 263.242
-margin_bottom = 63.3538
+margin_left = -14.0
+margin_top = 6.0
+margin_right = 263.0
+margin_bottom = 63.0
 mouse_filter = 1
 custom_fonts/font = SubResource( 1 )
 text = "сообщение
