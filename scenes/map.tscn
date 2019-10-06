@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/scenes/map.gd" type="Script" id=1]
 [ext_resource path="res://textures/bg/map.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://textures/ui/button.png" type="Texture" id=7]
 [ext_resource path="res://textures/ui/button_dis.png" type="Texture" id=8]
 [ext_resource path="res://fonts/25-font.tres" type="DynamicFont" id=9]
+[ext_resource path="res://textures/ui/button_old.png" type="Texture" id=10]
+[ext_resource path="res://scripts/ui/wind.gd" type="Script" id=11]
 
 [node name="map" type="Node"]
 script = ExtResource( 1 )
@@ -101,4 +103,38 @@ custom_fonts/font = ExtResource( 9 )
 custom_colors/font_color = Color( 0.941176, 0.321569, 0.156863, 1 )
 text = "Восстановить"
 autowrap = true
+
+[node name="wind" type="TextureRect" parent="."]
+margin_left = 609.728
+margin_top = 324.948
+margin_right = 1297.73
+margin_bottom = 713.948
+texture = ExtResource( 10 )
+expand = true
+script = ExtResource( 11 )
+
+[node name="Label" type="Label" parent="wind"]
+margin_left = 37.0
+margin_top = 36.0
+margin_right = 657.0
+margin_bottom = 264.0
+custom_fonts/font = ExtResource( 5 )
+text = "Ваня, сюда"
+
+[node name="TextureButton" type="TextureButton" parent="wind"]
+margin_left = 187.116
+margin_top = 282.101
+margin_right = 511.116
+margin_bottom = 342.101
+texture_normal = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="wind/TextureButton"]
+margin_left = 1.948
+margin_top = -3.89606
+margin_right = 318.948
+margin_bottom = 63.1039
+custom_fonts/font = ExtResource( 5 )
+text = "OK"
+align = 1
+valign = 1
 

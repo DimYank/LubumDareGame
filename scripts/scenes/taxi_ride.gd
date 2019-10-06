@@ -9,6 +9,7 @@ onready var passPop = $bg/passanger
 onready var driverPop = $bg/driver
 onready var moodBar = $bg/stisfactionBar
 onready var rewardPanel = $rewards
+onready var time_label = $bg/time
 
 var rideDic
 var actions = []
@@ -18,6 +19,8 @@ var typing
 var breakTyping
 var driverLinePrinted = false
 var clientLinePrinted = false
+var time = .0
+var end = false
 
 func _ready():
 	game_state.add_curtains("open")
@@ -29,6 +32,15 @@ func _ready():
 	game_state.connect("mood", self, "set_mood_bar")
 	rewardPanel.hide()
 
+func _process(delta):
+	if end:
+		return
+	time+=delta
+	time_label.text = "Время: " + String(int(time))+"/30"
+	if time > 30:
+		time = 30
+		reward()
+		
 func _input(event):
 	if event.is_action_pressed("cut_progress"):
 		if typing:
@@ -108,6 +120,7 @@ func set_mood_bar():
 	moodBar.value = game_state.client_points/100
 
 func reward():
+	end = true
 	var c
 	if game_state.client_points < 25:
 		c = 1

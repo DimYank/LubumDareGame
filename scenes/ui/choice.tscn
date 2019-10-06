@@ -8,16 +8,17 @@ size = 20
 font_data = ExtResource( 2 )
 
 [node name="choice" type="MarginContainer"]
-margin_right = 370.0
-margin_bottom = 140.0
-rect_min_size = Vector2( 370, 0 )
+margin_right = 360.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 360, 0 )
 custom_constants/margin_left = 0
 
 [node name="choice" type="TextureRect" parent="."]
-margin_right = 370.0
-margin_bottom = 140.0
-rect_min_size = Vector2( 0, 140 )
+margin_right = 360.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 0, 120 )
 texture = ExtResource( 1 )
+expand = true
 
 [node name="choice1" type="TextureButton" parent="choice"]
 margin_left = 34.3032
@@ -26,10 +27,11 @@ margin_right = 250.303
 margin_bottom = 53.9495
 
 [node name="mesage" type="Label" parent="choice/choice1"]
-margin_left = 11.0
-margin_top = -8.0
-margin_right = 296.0
-margin_bottom = 49.0
+margin_left = -21.8087
+margin_top = 8.40435
+margin_right = 263.191
+margin_bottom = 65.4044
+mouse_filter = 1
 custom_fonts/font = SubResource( 1 )
 text = "сообщение
 asd"
@@ -42,10 +44,11 @@ margin_right = 252.354
 margin_bottom = 105.213
 
 [node name="mesage" type="Label" parent="choice/choice2"]
-margin_left = 7.0
-margin_top = -8.0
-margin_right = 294.0
-margin_bottom = 49.0
+margin_left = -23.7582
+margin_top = 6.35384
+margin_right = 263.242
+margin_bottom = 63.3538
+mouse_filter = 1
 custom_fonts/font = SubResource( 1 )
 text = "сообщение
 asd"

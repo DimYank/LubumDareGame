@@ -2,6 +2,8 @@ extends Node
 
 const message = preload("res://scenes/ui/message.tscn")
 const choice = preload("res://scenes/ui/choice.tscn")
+const msg1 = preload("res://textures/ui/mesg.png")
+const msg2 = preload("res://textures/ui/msg2.png")
 const path = "res://dialogs/"
 onready var message_box = $bg/phone/ScrollContainer/VBoxContainer
 
@@ -37,11 +39,15 @@ func start_messaging():
 				message_box.add_child(inst_m)
 				inst_m.get_child(0).get_child(0).text = dict["cli"]
 				inst_m.set("custom_constants/margin_left", 70)
+				inst_m.get_child(0).texture = msg1
 			else:
 				message_box.add_child(inst_m)
 				inst_m.get_child(0).get_child(0).text = dict["lub"]
+				inst_m.set("custom_constants/margin_right", 70)
+				inst_m.get_child(0).texture = msg2
 		elif dict["type"] == "cho":
 			inst_c = choice.instance()
+			inst_c.get_child(0).texture = msg2
 			message_box.add_child(inst_c)
 			inst_c.get_node("choice/choice1/mesage").text = dict["1"]
 			inst_c.get_node("choice/choice2/mesage").text = dict["2"]

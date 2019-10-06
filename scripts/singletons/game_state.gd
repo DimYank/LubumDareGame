@@ -11,7 +11,7 @@ var ride_name = ""
 
 #player-related
 var accepted_orders = []
-var money = 3000
+var money = 0
 
 #ride-related
 var client_points setget cliet_points_set 

@@ -20,6 +20,7 @@ func check_points():
 
 func new_game():
 	game_state.new_game = false
+	$wind.show()
 
 func buy_docs():
 	game_state.add_curtains("close").connect("closed", self, "game_over")
