@@ -110,6 +110,7 @@ stream = ExtResource( 10 )
 autoplay = true
 
 [node name="wind" type="TextureRect" parent="."]
+visible = false
 margin_left = 609.728
 margin_top = 324.948
 margin_right = 1297.73

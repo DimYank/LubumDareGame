@@ -9,6 +9,8 @@ func _ready():
 	if game_state.new_game:
 		new_game()
 	money.text = "Деньги:"+String(game_state.money)+"p"
+	if game_state.money < 3000:
+		$buyDocsBut.disabled = true
 	$buyDocsBut.connect("button_down", self, "buy_docs")
 
 func check_points():

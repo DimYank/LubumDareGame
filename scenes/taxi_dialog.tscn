@@ -97,4 +97,5 @@ custom_constants/separation = 15
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="bg"]
 stream = ExtResource( 7 )
+autoplay = true
 
