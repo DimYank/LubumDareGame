@@ -11,12 +11,11 @@ font_data = ExtResource( 2 )
 margin_right = 360.0
 margin_bottom = 120.0
 rect_min_size = Vector2( 360, 0 )
-custom_constants/margin_left = 0
 
 [node name="choice" type="TextureRect" parent="."]
 margin_right = 360.0
-margin_bottom = 120.0
-rect_min_size = Vector2( 0, 120 )
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 130 )
 texture = ExtResource( 1 )
 expand = true
 
@@ -29,10 +28,11 @@ margin_bottom = 53.9495
 [node name="mesage" type="Label" parent="choice/choice1"]
 margin_left = -14.0
 margin_top = 8.0
-margin_right = 263.0
+margin_right = 310.0
 margin_bottom = 65.0
 mouse_filter = 1
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0.486275, 1, 1 )
 text = "сообщение
 asd"
 autowrap = true
@@ -46,10 +46,11 @@ margin_bottom = 105.213
 [node name="mesage" type="Label" parent="choice/choice2"]
 margin_left = -14.0
 margin_top = 6.0
-margin_right = 263.0
+margin_right = 298.0
 margin_bottom = 63.0
 mouse_filter = 1
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0.486275, 1, 1 )
 text = "сообщение
 asd"
 autowrap = true
