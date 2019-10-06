@@ -136,6 +136,7 @@ margin_bottom = 1023.06
 custom_constants/separation = 5
 
 [node name="action" parent="bg/actions" instance=ExtResource( 7 )]
+margin_bottom = 141.0
 
 [node name="passanger" type="TextureRect" parent="bg"]
 margin_left = 1720.68
@@ -176,10 +177,10 @@ custom_colors/font_color_shadow = Color( 0.333333, 0.180392, 0.0117647, 1 )
 text = "Настроение"
 
 [node name="time" type="Label" parent="bg"]
-margin_left = 668.428
-margin_top = 263.608
-margin_right = 1150.43
-margin_bottom = 336.608
+margin_left = 568.006
+margin_top = 252.45
+margin_right = 1050.01
+margin_bottom = 325.45
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 1, 0.960784, 0.556863, 1 )
 text = "Время: "

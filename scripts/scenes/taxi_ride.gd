@@ -36,9 +36,9 @@ func _process(delta):
 	if end:
 		return
 	time+=delta
-	time_label.text = "Время: " + String(int(time))+"/30"
-	if time > 30:
-		time = 30
+	time_label.text = "Время " + String(int(time/60))+":"+String(int(time)%60)+"/2:00"
+	if time > 120:
+		time = 120
 		reward()
 		
 func _input(event):
