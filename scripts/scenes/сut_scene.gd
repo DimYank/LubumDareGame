@@ -27,7 +27,7 @@ func set_scene():
 	print(game_state.cut_scene_name)
 	while !file.eof_reached():
 		var string = file.get_line()
-		if string.begins_with("!") || string.begins_with("#"):
+		if string.begins_with("!") || string.begins_with("#") || string.begins_with("?") :
 			scene_lines.append(string)
 		else:
 			scene_lines[scene_lines.size() - 1] += "\n" + string
@@ -42,7 +42,11 @@ func progress_scene():
 		return
 		
 	if scene_lines[progress].begins_with("!"):
-		bg.texture = load("textures/bg/" + scene_lines[progress].lstrip("!"))
+		bg.texture = load("res://textures/bg/" + scene_lines[progress].lstrip("!"))
+		progress_scene()
+	elif scene_lines[progress].begins_with("?"):
+		$AudioStreamPlayer.stream = load("res://backgroundmusic/"+scene_lines[progress].lstrip("?"))
+		$AudioStreamPlayer.play()
 		progress_scene()
 	else:
 		print_text(scene_lines[progress].lstrip("#"))

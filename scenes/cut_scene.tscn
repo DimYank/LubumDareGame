@@ -47,3 +47,6 @@ autowrap = true
 
 [node name="curtains" parent="." instance=ExtResource( 4 )]
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true
+

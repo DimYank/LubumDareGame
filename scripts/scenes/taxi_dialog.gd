@@ -49,8 +49,8 @@ func start_messaging():
 			inst_c = choice.instance()
 			inst_c.get_child(0).texture = msg2
 			message_box.add_child(inst_c)
-			inst_c.get_node("choice/choice1/mesage").text = dict["1"]
-			inst_c.get_node("choice/choice2/mesage").text = dict["2"]
+			inst_c.get_node("choice/choice1/mesage").text = "> " + dict["1"]
+			inst_c.get_node("choice/choice2/mesage").text = "> " + dict["2"]
 			inst_c.get_node("choice/choice1").connect("button_down", self, "apply_points", [dict["give"], inst_c.get_node("choice/choice2")])
 			inst_c.get_node("choice/choice2").connect("button_down", self, "apply_points", [-dict["take"], inst_c.get_node("choice/choice1")])
 

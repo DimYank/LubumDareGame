@@ -222,3 +222,4 @@ text = "ОК"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="rewards"]
 anims/drop = SubResource( 2 )
+
